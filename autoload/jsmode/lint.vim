@@ -98,6 +98,7 @@ fun! jsmode#lint#Run() "{{{
             let qf_item.bufnr = bufnr('%')
             let qf_item.filename = expand('%')
             let qf_item.lnum = parts[1] - len(g:jsmode_lint_rc)
+            let qf_item.col = parts[2]
             let qf_item.text = parts[4]
             if parts[3] == 'ERROR'
                 let qf_item.type = 'E'
