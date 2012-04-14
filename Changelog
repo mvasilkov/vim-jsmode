@@ -1,7 +1,8 @@
 2012-04-14  klen
 
-	* Version 0.1.2
+	* Version 0.1.3
 	* Add automatic tags creation
+	* Add 'jsmode_largefile' option
 
 2012-04-11  klen
 

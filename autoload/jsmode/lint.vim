@@ -2,6 +2,10 @@ fun! jsmode#lint#Check()
 
     if !g:jsmode_lint | return | endif
 
+    if g:jsmode_largefile && getfsize(expand('%:p')) >= g:jsmode_largefile*1024
+        return
+    endif
+
     let b:errors = {}
 
     if &modifiable && &modified

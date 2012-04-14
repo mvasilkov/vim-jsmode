@@ -1,4 +1,4 @@
-let g:jsmode_version = "0.1.2"
+let g:jsmode_version = "0.1.3"
 
 com! JsmodeVersion echomsg "Current jsmode version: " . g:jsmode_version
 
@@ -23,6 +23,11 @@ call jsmode#Default("g:jsmode_utils_whitespaces", 1)
 
 " OPTION: g:jsmode_options -- bool. Enable jsmode options for js files.
 call jsmode#Default("g:jsmode_options", 1)
+
+" OPTION: g:jsmode_largefile -- int. Maximal size of file for run
+" jslint and some utils commands (Kb). If 0 option is disabled.
+" is set.
+call jsmode#Default("g:jsmode_largefile", 100)
 
 " Check JS Interpreter
 let s:js = jsmode#CheckInterpreter('jsmode_interpreter')

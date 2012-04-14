@@ -1,4 +1,4 @@
-if jsmode#Default('b:jsmode', 1)
+if !g:jsmode || jsmode#Default('b:jsmode', 1)
     finish
 endif
 
@@ -98,7 +98,7 @@ if g:jsmode_tags
     setl tags=.tags
 
     if g:jsmode_tags_onwrite
-        au BufWrite <buffer> call jsmode#tags#CreateTags()
+        au BufWritePost <buffer> call jsmode#tags#CreateTags()
     endif
 
     exe "nnoremap <silent> <buffer> " . g:jsmode_tags_jump_key . " :call jsmode#tags#JumpTag(expand('<cword>'))<cr>"
@@ -111,7 +111,7 @@ endif
 " Utils {{{
 
 if g:jsmode_utils_whitespaces
-    au BufWritePre <buffer> call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+    au BufWritePre <buffer> call jsmode#utils#ClearWhitespaces()
 endif
 
 " }}}
