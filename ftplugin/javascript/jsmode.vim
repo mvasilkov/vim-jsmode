@@ -17,6 +17,7 @@ if (g:jsmode_options)
     setl number
     setl nowrap
     setl textwidth=79
+    setl omnifunc=javascriptcomplete#CompleteJS
 endif
 
 " }}}
@@ -89,10 +90,28 @@ endif
 " }}}
 
 
+" Tags {{{
+
+if g:jsmode_tags
+    command! -buffer -nargs=0 CreateTags :call jsmode#tags#CreateTags()
+
+    setl tags=.tags
+
+    if g:jsmode_tags_onwrite
+        au BufWrite <buffer> call jsmode#tags#CreateTags()
+    endif
+
+    exe "nnoremap <silent> <buffer> " . g:jsmode_tags_jump_key . " :call jsmode#tags#JumpTag(expand('<cword>'))<cr>"
+
+endif
+
+" }}}
+
+
 " Utils {{{
 
 if g:jsmode_utils_whitespaces
-    au BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+    au BufWritePre <buffer> call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 endif
 
 " }}}

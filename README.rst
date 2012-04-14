@@ -128,3 +128,14 @@ Default values: ::
     " Place error signs
     let g:jsmode_lint_signs = 1
 
+    " Jsmode ctags support
+    let g:jsmode_tags = 1
+
+    " Command for tags creation
+    let g:jsmode_tags_cmd = 'ctags'
+
+    " Recreate tags on write
+    let g:jsmode_tags_cmd = 'ctags'
+
+    " Jump tag key
+    let g:jsmode_tags_jump_key = '<C-c>g'

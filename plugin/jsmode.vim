@@ -1,4 +1,4 @@
-let g:jsmode_version = "0.1.1"
+let g:jsmode_version = "0.1.2"
 
 com! JsmodeVersion echomsg "Current jsmode version: " . g:jsmode_version
 
@@ -85,7 +85,32 @@ if s:js && (!jsmode#Default("g:jsmode_lint", 1) || g:jsmode_lint)
 
 endif
 
+" }}}
+
+
+" Tags {{{
+
+if (!jsmode#Default("g:jsmode_tags", 1) || g:jsmode_lint)
+
+    let g:jsmode_tags_langdef = join([ '--langdef=js', '--langmap=js:.js',
+\       '--regex-js=/([A-Za-z0-9._$]+)[ \t]*=[ \t]*function[ \t]*\(/\1/f,function/',
+\       '--regex-js=/function[ \t]+([A-Za-z0-9._$]+)[ \t]*\([^\]\)]*\)/\1/f,function/',
+\       '--regex-js=/var ([A-Za-z0-9._$]+)[ \t]*[=][ \t]*([A-Za-z0-9._"\$\#\[\{]+)[,|;]/\1/v,variable/',
+\       '--regex-js=/([A-Za-z0-9._$]+)[ \t]*:[ \t]*function[ \t]*\(/\1/m,method/',
+\       '--regex-js=/([A-Za-z0-9._$]+)[ \t]*:[ \t]*new[ \t]*/\1/m,method/',
+\       '--regex-js=/([A-Za-z0-9._$]+)[ \t]*=[ \t]*new[ \t]+\(/\1/o,object/',
+\       '--regex-js=/([A-Za-z0-9._$]+)[ \t]*=[ \t]*([A-Za-z0-9._"\$\#]+)extend\(/\1/c,class/'
+\   ], ' ')
+
+    call jsmode#Default('g:jsmode_tags_cmd', 'ctags')
+
+    call jsmode#Default('g:jsmode_tags_onwrite', 1)
+
+    call jsmode#Default('g:jsmode_tags_jump_key', '<C-c>g')
+
+endif
 
 " }}}
+
 
 " vim: fdm=marker:fdl=0
