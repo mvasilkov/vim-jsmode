@@ -1,4 +1,4 @@
-let g:jsmode_version = "0.1.3"
+let g:jsmode_version = "0.1.4"
 
 com! JsmodeVersion echomsg "Current jsmode version: " . g:jsmode_version
 

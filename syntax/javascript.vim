@@ -217,7 +217,7 @@ syn sync match javaScriptHighlight grouphere javaScriptBlock /{/
 "
 
     if (g:jsmode_syntax_fold)
-        syn match   javaScriptFunction       /\<function\>/ nextgroup=javaScriptFuncName skipwhite
+        syn match   javaScriptFunction       /\<function\|get\|set\>/ nextgroup=javaScriptFuncName skipwhite
         syn match   javaScriptOpAssign       /=\@<!=/ nextgroup=javaScriptFuncBlock skipwhite skipempty
         syn region  javaScriptFuncName       contained matchgroup=javaScriptFuncName start=/\%(\$\|\w\)*\s*(/ end=/)/ contains=javaScriptLineComment,javaScriptComment nextgroup=javaScriptFuncBlock skipwhite skipempty
         syn region  javaScriptFuncBlock      contained matchgroup=javaScriptFuncBlock start="{" end="}" contains=@javaScriptAll,javaScriptParensErrA,javaScriptParensErrB,javaScriptParen,javaScriptBracket,javaScriptBlock fold
