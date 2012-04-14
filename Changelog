@@ -1,6 +1,6 @@
 2012-04-14  klen
 
-	* Version 0.1.4
+	* Version 0.1.5
 	* Add automatic tags creation
 	* Add 'jsmode_largefile' option
 	* Fix getter and setter syntax

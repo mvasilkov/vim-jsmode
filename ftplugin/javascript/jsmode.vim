@@ -18,6 +18,7 @@ if (g:jsmode_options)
     setl nowrap
     setl textwidth=79
     setl omnifunc=javascriptcomplete#CompleteJS
+    setl complete+=t
 endif
 
 " }}}
@@ -101,7 +102,8 @@ if g:jsmode_tags
         au BufWritePost <buffer> call jsmode#tags#CreateTags()
     endif
 
-    exe "nnoremap <silent> <buffer> " . g:jsmode_tags_jump_key . " :call jsmode#tags#JumpTag(expand('<cword>'))<cr>"
+    exe "nnoremap <silent> <buffer> " . g:jsmode_tags_jump_key . " :call jsmode#tags#JumpTag(expand('<cWORD>'))<cr>"
+    exe "vnoremap <silent> <buffer> " . g:jsmode_tags_jump_key . " :<C-U>call jsmode#tags#JumpTag(@*)<cr>"
 
 endif
 
