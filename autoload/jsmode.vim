@@ -62,7 +62,6 @@ fun! jsmode#CheckInterpreter(name) "{{{
     elseif executable('js')
         let {name} = 'js'
     else
-        echoerr "Can't find JS Interpreter. Set it in g:jsmode_interpreter variable."
         return 0
     endif
     return 1
