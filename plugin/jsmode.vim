@@ -30,19 +30,23 @@ call jsmode#Default("g:jsmode_options", 1)
 call jsmode#Default("g:jsmode_largefile", 100)
 
 " Check JS Interpreter
-let s:js = jsmode#CheckInterpreter('jsmode_interpreter')
+if jsmode#CheckInterpreter('jsmode_interpreter')
 
-if s:js
     let g:jsmode_libs = expand('<sfile>:p:h:h') . "/jslibs"
     if has('win32')
         let g:jsmode_libs = substitute(g:jsmode_libs, '/', '\', 'g')
     endif
+
+else
+
+    let g:jsmode_lint = 0
+
 endif
 
 
 " Lint {{{
 
-if s:js && (!jsmode#Default("g:jsmode_lint", 1) || g:jsmode_lint)
+if !jsmode#Default("g:jsmode_lint", 1) || g:jsmode_lint
 
     " OPTION: g:jsmode_lint_write -- bool. Check code every save.
     call jsmode#Default("g:jsmode_lint_write", 1)
