@@ -39,6 +39,7 @@ if jsmode#CheckInterpreter('jsmode_interpreter')
 
 else
 
+    " Disable jslint
     let g:jsmode_lint = 0
 
 endif

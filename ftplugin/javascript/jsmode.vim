@@ -5,7 +5,7 @@ endif
 
 " Options {{{
 
-if (g:jsmode_options)
+if g:jsmode_options
     setl tabstop=4
     setl softtabstop=4
     setl shiftwidth=4
@@ -26,7 +26,7 @@ endif
 
 " Folding {{{
 
-if (g:jsmode_folding)
+if g:jsmode_folding
 
     setl fen
     setl foldmethod=syntax
@@ -41,7 +41,7 @@ endif
 
 " Indent {{{
 
-if (g:jsmode_indent)
+if g:jsmode_indent
 
     setl autoindent
     setl indentexpr=jsmode#indent#expr(v:lnum)
@@ -54,7 +54,7 @@ endif
 
 " JsLint {{{
 
-if (g:jsmode_lint)
+if g:jsmode_lint
 
     let b:qf_list = []
 
