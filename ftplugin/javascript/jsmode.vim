@@ -57,12 +57,14 @@ endif
 if g:jsmode_lint
 
     let b:qf_list = []
+    let g:qf_list = []
 
     " DESC: Set commands
     command! -buffer -nargs=0 JsLintToggle :call jsmode#lint#Toggle()
     command! -buffer -nargs=0 JsLintWindowToggle :call jsmode#lint#ToggleWindow()
     command! -buffer -nargs=0 JsLintCheckerToggle :call jsmode#lint#ToggleChecker()
     command! -buffer -nargs=0 JsLint :call jsmode#lint#Check()
+    command! -buffer -nargs=0 JsLintAuto :call jsmode#lint#Auto()
 
     " DESC: Set autocommands
     if g:jsmode_lint_write

@@ -57,10 +57,6 @@ fun! jsmode#CheckInterpreter(name) "{{{
         let {name} = 'node'
     elseif executable('nodejs')
         let {name} = 'nodejs'
-    elseif executable('/System/Library/Frameworks/JavaScriptCore.framework/Resources/jsc')
-        let {name} = '/System/Library/Frameworks/JavaScriptCore.framework/Resources/jsc'
-    elseif executable('js')
-        let {name} = 'js'
     else
         return 0
     endif

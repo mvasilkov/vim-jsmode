@@ -91,7 +91,7 @@ endfunction " }}}
 
 
 fun! jsmode#lint#Run() "{{{
-    let cmd = "cd " . g:jsmode_libs . " && " . g:jsmode_interpreter . " runjslint.js "
+    let cmd = "cd " . g:jsmode_libs . " && " . g:jsmode_interpreter . " run_jslint.js "
     let stdin =  join(g:jsmode_lint_rc + getline(0, '$'), "\n")
     let output = jsmode#RunShell(cmd, stdin)
     let result = []
@@ -113,4 +113,28 @@ fun! jsmode#lint#Run() "{{{
         endif
     endfor
     return result
+endfunction "}}}
+
+
+fun! jsmode#lint#Auto() "{{{
+    if &modifiable && &modified
+        try
+            write
+        catch /E212/
+            echohl Error | echo "File modified and I can't save it. Cancel operation." | echohl None
+            return 0
+        endtry
+    endif
+
+    let cmd = "cd " . g:jsmode_libs . " && " . g:jsmode_interpreter . " run_beautify.js "
+    let pos = getpos('.')
+    try
+        0,$d
+        exec '0r!' . cmd . expand('%:p')
+        $d
+    catch /.*/
+        undo
+    endtry
+    call pymode#WideMessage("AutoJSLint done.")
+    call setpos('.', pos)
 endfunction "}}}
