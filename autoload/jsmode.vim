@@ -130,4 +130,19 @@ fun! jsmode#FoldText() "{{{
 endfunction "}}}
 
 
+let s:breakpoint = 'debugger; // XXX: Debug'
+fun! pymode#breakpoint#Set(lnum) "{{{
+    let line = getline(a:lnum)
+    if strridx(line, s:breakpoint) != -1
+        normal dd
+    else
+        let plnum = prevnonblank(a:lnum)
+        call append(line('.')-1, repeat(' ', indent(plnum)).s:breakpoint)
+        normal k
+    endif
+
+    " Save file
+    if &modifiable && &modified | noautocmd write | endif	
+
+endfunction "}}}
 " vim: fdm=marker:fdl=0

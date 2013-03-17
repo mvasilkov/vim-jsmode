@@ -121,4 +121,11 @@ endif
 " }}}
 
 
+" Breakpoints {{{
+
+" DESC: Set keys
+exe "nnoremap <silent> <buffer> <leader>b :call pymode#breakpoint#Set(line('.'))<CR>"
+
+" }}}
+
 " vim: fdm=marker:fdl=0
