@@ -131,7 +131,7 @@ endfunction "}}}
 
 
 let s:breakpoint = 'debugger; // XXX: Debug'
-fun! pymode#breakpoint#Set(lnum) "{{{
+fun! jsmode#breakpoint#Set(lnum) "{{{
     let line = getline(a:lnum)
     if strridx(line, s:breakpoint) != -1
         normal dd
