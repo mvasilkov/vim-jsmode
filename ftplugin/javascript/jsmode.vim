@@ -124,7 +124,7 @@ endif
 " Breakpoints {{{
 
 " DESC: Set keys
-exe "nnoremap <silent> <buffer> <leader>b :call jsmode#breakpoint#Set(line('.'))<CR>"
+exe "nnoremap <silent> <buffer> <leader>b :call jsmode#Breakpoint(line('.'))<CR>"
 
 " }}}
 
