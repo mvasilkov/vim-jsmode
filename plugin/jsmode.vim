@@ -23,6 +23,7 @@ call jsmode#Default("g:jsmode_utils_whitespaces", 1)
 
 " OPTION: g:jsmode_options -- bool. Enable jsmode options for js files.
 call jsmode#Default("g:jsmode_options", 1)
+call jsmode#Default("g:jsmode_options_indent", 4)
 
 " OPTION: g:jsmode_largefile -- int. Maximal size of file for run
 " jslint and some utils commands (Kb). If 0 option is disabled.

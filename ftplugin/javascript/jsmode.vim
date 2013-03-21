@@ -6,9 +6,9 @@ endif
 " Options {{{
 
 if g:jsmode_options
-    setl tabstop=4
-    setl softtabstop=4
-    setl shiftwidth=4
+    execute 'setl tabstop='.g:jsmode_options_indent
+    execute 'setl softtabstop='.g:jsmode_options_indent
+    execute 'setl shiftwidth='.g:jsmode_options_indent
     setl shiftround
     setl smartindent
     setl smarttab
