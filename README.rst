@@ -19,7 +19,7 @@ Requirements
 How to install
 ==============
 
-Using pathogen_ (recomended)
+Using pathogen_ (recommended)
 ----------------------------
 ::
 
@@ -61,7 +61,7 @@ Settings
 To change this settings, edit your ``~/.vimrc``: ::
 
     " Disable jsmode_folding
-    let g:jsmode_filding = 0
+    let g:jsmode_folding = 0
 
 Default values: ::
 
